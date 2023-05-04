@@ -1,0 +1,20 @@
+[
+  {
+    $project:
+      /**
+       * specifications: The fields to
+       *   include or exclude.
+       */
+      {
+        _id: 0,
+        name: 1,
+        allegiance: 1,
+        "controllingFaction.name": 1,
+        government: 1,
+        primaryEconomy: 1,
+        secondaryEconomy: 1,
+        security: 1,
+        population: 1,
+      },
+  },
+]

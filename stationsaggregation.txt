@@ -1,0 +1,46 @@
+[
+  {
+    $project:
+      /**
+       * specifications: The fields to
+       *   include or exclude.
+       */
+      {
+        _id: 0,
+        name: 1,
+        "stations.name": 1,
+        "stations.allegiance": 1,
+        "stations.controllingFaction": 1,
+        "stations.primaryEconomy": 1,
+        "stations.government": 1,
+        "stations.type": 1,
+        "stations.landingPads": 1,
+        "stations.distanceToArrival": 1,
+      },
+  },
+  {
+    $unwind:
+      /**
+       * path: Path to the array field.
+       * includeArrayIndex: Optional name for index.
+       * preserveNullAndEmptyArrays: Optional
+       *   toggle to unwind null and empty values.
+       */
+      {
+        path: "$stations",
+      },
+  },
+  {
+    $match:
+      /**
+       * query: The query in MQL.
+       */
+      {
+        "stations.type": {
+          $not: {
+            $eq: "Drake-Class Carrier",
+          },
+        },
+      },
+  },
+]
