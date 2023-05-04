@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `systems` (
   `secondaryEconomy` varchar(50) DEFAULT NULL,
   `security` enum('High','Medium','Low','Anarchy') DEFAULT NULL,
   `population` bigint(15) DEFAULT NULL,
-  `controllingFaction` varchar(100) DEFAULT NULL,
+  `controllingFaction` text DEFAULT NULL,
   PRIMARY KEY (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
