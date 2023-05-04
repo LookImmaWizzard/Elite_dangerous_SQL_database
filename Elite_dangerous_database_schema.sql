@@ -1,7 +1,7 @@
 -- --------------------------------------------------------
--- Host:                         localhost
--- Versión del servidor:         10.11.2-MariaDB - mariadb.org binary distribution
--- SO del servidor:              Win64
+-- Host:                         149.91.121.226
+-- Versión del servidor:         10.5.18-MariaDB-0+deb11u1 - Debian 11
+-- SO del servidor:              debian-linux-gnu
 -- HeidiSQL Versión:             11.3.0.6295
 -- --------------------------------------------------------
 
@@ -21,10 +21,11 @@ USE `elite_dangerous_database`;
 -- Volcando estructura para tabla elite_dangerous_database.stars
 DROP TABLE IF EXISTS `stars`;
 CREATE TABLE IF NOT EXISTS `stars` (
-  `system` varchar(50) DEFAULT NULL,
   `name` varchar(50) NOT NULL,
   `class` varchar(50) DEFAULT NULL,
+  `mainstar` varchar(50) DEFAULT NULL,
   `spectralclass` varchar(50) DEFAULT NULL,
+  `system` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
