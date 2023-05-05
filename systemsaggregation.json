@@ -9,12 +9,18 @@
         _id: 0,
         name: 1,
         allegiance: 1,
-        "controllingFaction.name": 1,
         government: 1,
-        primaryEconomy: 1,
-        secondaryEconomy: 1,
+        economy: 1,
         security: 1,
         population: 1,
+        "controllingFaction.name": 1,
       },
   },
+  // {
+  //   $count:
+  //     /**
+  //      * Provide the field name for the count.
+  //      */
+  //     "string",
+  // }
 ]

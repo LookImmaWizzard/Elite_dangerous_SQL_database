@@ -1,31 +1,5 @@
 [
   {
-    $project:
-      /**
-       * specifications: The fields to
-       *   include or exclude.
-       */
-      {
-        _id: 0,
-        name: 1,
-        "bodies.name": 1,
-        "bodies.type": 1,
-        "bodies.subType": 1,
-        "bodies.spectralClass": 1,
-        "bodies.mainStar": 1,
-      },
-  },
-  {
-    $set:
-      /**
-       * field: The field name
-       * expression: The expression.
-       */
-      {
-        system: "$name",
-      },
-  },
-  {
     $unwind:
       /**
        * path: Path to the array field.
@@ -53,8 +27,19 @@
        *   include or exclude.
        */
       {
-        name: 0,
-        "bodies.type": 0,
+        _id: 0,
+        name: 1,
+        "bodies.name": 1,
+        "bodies.subType": 1,
+        "bodies.spectralClass": 1,
+        "bodies.isMainStar": 1,
       },
   },
+  // {
+  //   $count:
+  //     /**
+  //      * Provide the field name for the count.
+  //      */
+  //     "string",
+  // }
 ]
