@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `elite_dangerous_database`
 --
-CREATE DATABASE IF NOT EXISTS `elite_dangerous_database` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `elite_dangerous_database`;
+CREATE DATABASE IF NOT EXISTS `eddb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `eddb`;
 
 -- --------------------------------------------------------
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `stars` (
   `spectralclass` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`name`) USING BTREE,
   KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `stations` (
   `economy` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`system`,`NAME`),
   KEY `NAME` (`NAME`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -82,10 +82,10 @@ CREATE TABLE IF NOT EXISTS `systems` (
   `economy` varchar(50) DEFAULT NULL,
   `security` enum('High','Medium','Low','Anarchy') DEFAULT NULL,
   `population` bigint(15) DEFAULT NULL,
-  `faction` text DEFAULT 'NULL',
+  `faction` varchar(50) DEFAULT 'NULL',
   PRIMARY KEY (`name`) USING BTREE,
   KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
